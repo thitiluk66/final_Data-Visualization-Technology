@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="แดชบอร์ดวิเคราะห์อายุความนิยมของเพลง"
+    >
+
+    <title>
+        แดชบอร์ดวิเคราะห์อายุความนิยมของเพลง
+    </title>
+
+
+    <!-- =====================================================
+         FONT
+         ===================================================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- =====================================================
+         CSS
+         ===================================================== -->
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="header">
+
+        <div class="header-container">
+
+
+            <!-- Brand -->
+
+            <div class="brand">
+
+                <div class="brand-icon">
+                    ♪
+                </div>
+
+                <div>
+
+                    <h1>
+                        แดชบอร์ดอายุความนิยมของเพลง
+                    </h1>
+
+                    <p>
+                        ระบบแสดงผลและวิเคราะห์ข้อมูลเพลง
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Header Information -->
+
+            <div class="header-info">
+
+                <span>
+                    ข้อมูลเพลง
+                </span>
+
+                <span>
+                    การแสดงผลข้อมูล
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="container">
+
+
+        <!-- =================================================
+             INTRODUCTION
+             ================================================= -->
+
+        <section class="intro">
+
+            <div class="section-label">
+                SONG LONGEVITY
+            </div>
+
+
+            <h2>
+
+                วิเคราะห์ว่า
+                <span>เพลงจะได้รับความนิยม</span>
+                ได้นานแค่ไหน
+
+            </h2>
+
+
+            <p>
+
+                แดชบอร์ดนี้ใช้สำหรับสำรวจและวิเคราะห์ข้อมูล
+                เพื่อศึกษาปัจจัยที่เกี่ยวข้องกับความนิยมของเพลง
+                โดยสามารถเลือกดูข้อมูลตามประเภทเพลง
+                ระดับค่ายเพลง และสถานะเพลงฮิตได้
+
+            </p>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FILTER
+             ================================================= -->
+
+        <section class="filter-card">
+
+
+            <div class="filter-header">
+
+                <div>
+
+                    <h3>
+                        ตัวกรองข้อมูล
+                    </h3>
+
+                    <p>
+                        เลือกเงื่อนไขเพื่อวิเคราะห์ข้อมูลเพลงที่ต้องการ
+                    </p>
+
+                </div>
+
+
+                <button
+                    id="resetBtn"
+                    class="reset-button"
+                    type="button"
+                >
+
+                    รีเซ็ตตัวกรอง
+
+                </button>
+
+            </div>
+
+
+
+            <div class="filters">
+
+
+                <!-- Genre -->
+
+                <div class="filter-group">
+
+                    <label for="genreFilter">
+                        ประเภทเพลง
+                    </label>
+
+                    <select id="genreFilter">
+
+                        <option value="all">
+                            ทุกประเภทเพลง
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- Label Tier -->
+
+                <div class="filter-group">
+
+                    <label for="labelFilter">
+                        ระดับค่ายเพลง
+                    </label>
+
+                    <select id="labelFilter">
+
+                        <option value="all">
+                            ทุกระดับค่ายเพลง
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- Hit Status -->
+
+                <div class="filter-group">
+
+                    <label for="hitFilter">
+                        สถานะเพลง
+                    </label>
+
+                    <select id="hitFilter">
+
+                        <option value="all">
+                            เพลงทั้งหมด
+                        </option>
+
+                        <option value="hit">
+                            เพลงฮิต
+                        </option>
+
+                        <option value="non-hit">
+                            เพลงไม่ฮิต
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             KPI
+             ================================================= -->
+
+        <section class="kpi-grid">
+
+
+            <!-- Total Songs -->
+
+            <div class="kpi-card">
+
+                <div class="kpi-icon">
+                    🎵
+                </div>
+
+                <div>
+
+                    <p>
+                        จำนวนเพลงทั้งหมด
+                    </p>
+
+                    <h3 id="totalSongs">
+                        -
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Average Streams -->
+
+            <div class="kpi-card">
+
+                <div class="kpi-icon">
+                    ▶
+                </div>
+
+                <div>
+
+                    <p>
+                        ค่าเฉลี่ยยอดสตรีม 3 ปี
+                    </p>
+
+                    <h3 id="avgStreams">
+                        -
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Hit Rate -->
+
+            <div class="kpi-card">
+
+                <div class="kpi-icon">
+                    ★
+                </div>
+
+                <div>
+
+                    <p>
+                        อัตราเพลงฮิต
+                    </p>
+
+                    <h3 id="hitRate">
+                        -
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Half Life -->
+
+            <div class="kpi-card">
+
+                <div class="kpi-icon">
+                    ⏱
+                </div>
+
+                <div>
+
+                    <p>
+                        ค่าเฉลี่ยอายุความนิยม
+                    </p>
+
+                    <h3 id="avgHalfLife">
+                        -
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             CHART 1
+             ================================================= -->
+
+        <section class="chart-card">
+
+
+            <div class="chart-header">
+
+                <div>
+
+                    <div class="chart-number">
+                        กราฟที่ 1
+                    </div>
+
+                    <h3>
+                        ความสัมพันธ์ระหว่างยอดสตรีมเดือนแรกกับยอดสตรีมหลัง 3 ปี
+                    </h3>
+
+                    <p>
+                        แสดงความสัมพันธ์ระหว่างกระแสตอบรับในช่วงเดือนแรก
+                        กับยอดสตรีมที่สะสมหลังจาก 3 ปี
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="chart-wrapper large">
+
+                <canvas
+                    id="scatterChart"
+                ></canvas>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             CHART GRID
+             ================================================= -->
+
+        <div class="chart-grid">
+
+
+            <!-- =============================================
+                 CHART 2
+                 ============================================= -->
+
+            <section class="chart-card">
+
+
+                <div class="chart-header">
+
+                    <div>
+
+                        <div class="chart-number">
+                            กราฟที่ 2
+                        </div>
+
+                        <h3>
+                            จำนวนเพลงจำแนกตามประเภทเพลง
+                        </h3>
+
+                        <p>
+                            เปรียบเทียบจำนวนเพลงในแต่ละประเภท
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="chart-wrapper">
+
+                    <canvas
+                        id="genreChart"
+                    ></canvas>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- =============================================
+                 CHART 3
+                 ============================================= -->
+
+            <section class="chart-card">
+
+
+                <div class="chart-header">
+
+                    <div>
+
+                        <div class="chart-number">
+                            กราฟที่ 3
+                        </div>
+
+                        <h3>
+                            อัตราเพลงฮิตจำแนกตามระดับค่ายเพลง
+                        </h3>
+
+                        <p>
+                            แสดงสัดส่วนเพลงฮิตของแต่ละระดับค่ายเพลง
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="chart-wrapper">
+
+                    <canvas
+                        id="labelChart"
+                    ></canvas>
+
+                </div>
+
+
+            </section>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             CHART 4
+             ================================================= -->
+
+        <section class="chart-card">
+
+
+            <div class="chart-header">
+
+                <div>
+
+                    <div class="chart-number">
+                        กราฟที่ 4
+                    </div>
+
+                    <h3>
+                        ความสัมพันธ์ของปัจจัยต่าง ๆ กับยอดสตรีมหลัง 3 ปี
+                    </h3>
+
+                    <p>
+                        ใช้ค่าสหสัมพันธ์เพียร์สัน
+                        เพื่อแสดงระดับความสัมพันธ์ระหว่างตัวแปร
+                        กับยอดสตรีมหลัง 3 ปี
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="chart-wrapper large">
+
+                <canvas
+                    id="correlationChart"
+                ></canvas>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             INSIGHT
+             ================================================= -->
+
+        <section class="insight-card">
+
+
+            <div class="insight-icon">
+                💡
+            </div>
+
+
+            <div>
+
+                <h3>
+                    ข้อค้นพบจากข้อมูล
+                </h3>
+
+
+                <p id="insightText">
+
+                    กำลังวิเคราะห์ข้อมูล...
+
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             DATA SOURCE
+             ================================================= -->
+
+        <section class="source-section">
+
+
+            <h3>
+                ข้อมูลที่ใช้ในการวิเคราะห์
+            </h3>
+
+
+            <p>
+
+                แหล่งข้อมูล:
+                <strong>
+                    song_longevity.csv
+                </strong>
+
+            </p>
+
+
+            <p>
+
+                ข้อมูลถูกนำมาใช้เพื่อวิเคราะห์ปัจจัยต่าง ๆ
+                ที่เกี่ยวข้องกับอายุความนิยมของเพลง
+                และยอดสตรีมในระยะยาว
+
+            </p>
+
+
+            <div class="source-tags">
+
+
+                <span>
+                    ข้อมูลเพลง
+                </span>
+
+                <span>
+                    ประเภทเพลง
+                </span>
+
+                <span>
+                    ยอดสตรีม
+                </span>
+
+                <span>
+                    เพลงฮิต
+                </span>
+
+                <span>
+                    ค่ายเพลง
+                </span>
+
+                <span>
+                    อายุความนิยม
+                </span>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+         ===================================================== -->
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+
+            <div>
+
+                <strong>
+                    แดชบอร์ดอายุความนิยมของเพลง
+                </strong>
+
+                <p>
+                    ระบบแสดงผลและวิเคราะห์ข้อมูลเพลง
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <p>
+                    จัดทำเพื่อการศึกษา
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         CHART.JS
+         ===================================================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/chart.js"
+    ></script>
+
+
+
+    <!-- =====================================================
+         APPLICATION JAVASCRIPT
+         ===================================================== -->
+
+    <script
+        src="app.js"
+    ></script>
+
+
+</body>
+
+</html>
